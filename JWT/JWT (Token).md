@@ -8,22 +8,39 @@ NOTE: **Token is set in `API` level**
 - [ ] In `Program.cs` after `#region Cors: baraye ta'eede Angular HttpClient requests`
 ```C#
 #region Authentication & Authorization
-string tokenValue = builder.Configuration["TokenKey"]!;
+
+string tokenValue = configuration["TokenKey"]!;
+
+  
 
 if (!string.IsNullOrEmpty(tokenValue))
+
 {
-    builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-        .AddJwtBearer(options =>
-        {
-            options.TokenValidationParameters = new TokenValidationParameters
-            {
-                ValidateIssuerSigningKey = true,
-                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(tokenValue)),
-                ValidateIssuer = false,
-                ValidateAudience = false
-            };
-        });
+
+services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+
+.AddJwtBearer(options =>
+
+{
+
+options.TokenValidationParameters = new TokenValidationParameters
+
+{
+
+ValidateIssuerSigningKey = true,
+
+IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(tokenValue)),
+
+ValidateIssuer = false,
+
+ValidateAudience = false
+
+};
+
+});
+
 }
+
 #endregion Authentication & Authorization
 ```
 
