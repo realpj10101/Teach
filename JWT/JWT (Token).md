@@ -5,7 +5,7 @@ NOTE: **Token is set in `API` level**
 #### Create and Use Token
 - [ ] **Command Palette** => **Nuget Gallery** => Install `Microsoft.AspNetCore.Authentication.JwtBearer`
 
-- [ ] In `Program.cs` after `#region Cors: baraye ta'eede Angular HttpClient requests`
+- [ ] In `IdentityServiceExtensions.cs` add this code
 ```C#
 #region Authentication & Authorization
 
